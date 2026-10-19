@@ -2834,7 +2834,7 @@ CORE_CLONEDEF(sman, 262,   261, "Spider-Man (V2.62) (MOD with replaced music)", 
 
 static mech_tInitData mechwofWheel = {
 	WOF_WHEEL_SOL1, WOF_WHEEL_SOL2, MECH_CIRCLE | MECH_LINEAR | MECH_TWOSTEPSOL | MECH_FAST, 398, 360,
-	{ { WOF_WHEEL_OPTO_SW, 358, 360 }, 0 }
+	{ { WOF_WHEEL_OPTO_SW, 358, 360 }, { 0 } }
 };
 
 static void wof_handleMech(int mech) {

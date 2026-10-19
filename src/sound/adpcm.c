@@ -603,7 +603,7 @@ static void okim6295_state_save_register(void)
 	int i,j;
 	int chips;
 	char buf[20];
-	char buf2[20];
+	char buf2[32];
 
 	adpcm_state_save_register();
 	sprintf(buf,"OKIM6295");
@@ -614,7 +614,7 @@ static void okim6295_state_save_register(void)
 		state_save_register_INT32  (buf, i, "command", &okim6295_command[i], 1);
 		for (j = 0; j < OKIM6295_VOICES; j++)
 		{
-			sprintf(buf2,"base_voice_%1i",j);
+			snprintf(buf2, sizeof(buf2), "base_voice_%d",j);
 			state_save_register_INT32  (buf, i, buf2, &okim6295_base[i][j], 1);
 		}
 	}

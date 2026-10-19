@@ -503,7 +503,7 @@ src_char_to_float_array(const signed char * const __restrict in, float * const _
 	for (i = 0 ; i < len ; i++)
 #ifdef RESAMPLER_SSE_OPT
 	{
-		__m128 tmp;
+		__m128 tmp = _mm_setzero_ps();
 		out[i] = _mm_cvtss_f32(_mm_mul_ss(_mm_cvt_si2ss(tmp,in[i]),_mm_set_ss((float)(1.0 / 0x80))));
 	}
 #else
@@ -518,7 +518,7 @@ src_short_to_float_array (const short * const __restrict in, float * const __res
 	for (i = 0 ; i < len ; i++)
 #ifdef RESAMPLER_SSE_OPT
 	{
-		__m128 tmp;
+		__m128 tmp = _mm_setzero_ps();
 		out[i] = _mm_cvtss_f32(_mm_mul_ss(_mm_cvt_si2ss(tmp,in[i]),_mm_set_ss((float)(1.0 / 0x8000))));
 	}
 #else
@@ -554,7 +554,7 @@ src_int_to_float_array (const int * const __restrict in, float * const __restric
 	for (i = 0 ; i < len ; i++)
 #ifdef RESAMPLER_SSE_OPT
 	{
-		__m128 tmp;
+		__m128 tmp = _mm_setzero_ps();
 		out[i] = _mm_cvtss_f32(_mm_mul_ss(_mm_cvt_si2ss(tmp,in[i]>>7),_mm_set_ss((float)(1.0 / (1.0 * (0x80000000>>7))))));
 	}
 #else
